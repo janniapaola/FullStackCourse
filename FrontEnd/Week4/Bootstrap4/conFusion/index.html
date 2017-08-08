@@ -215,7 +215,7 @@
       </a>
       <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon"></span>
-      </a> 
+      </a>
         <button class="btn btn-danger btn-sm" id="carousel-button">
           <span id="carousel-button-icon" class="fa fa-pause"></span>
         </button>
@@ -272,6 +272,7 @@
     </div>
     </div>
     </div>
+  </div>
 <!-- End of Page Body -->
 <!-- Start of Footer -->
   <footer class="footer">
@@ -320,20 +321,7 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/tether/dist/js/tether.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script>
-  $("#carousel-button").click(function(){
-      if ($("#carousel-button").children("span").hasClass('fa-pause')) {
-          $("#mycarousel").carousel('pause');
-          $("#carousel-button").children("span").removeClass('fa-pause');
-          $("#carousel-button").children("span").addClass('fa-play');
-      }
-      else if ($("#carousel-button").children("span").hasClass('fa-play')){
-          $("#mycarousel").carousel('cycle');
-          $("#carousel-button").children("span").removeClass('fa-play');
-          $("#carousel-button").children("span").addClass('fa-pause');
-      }
-  });
-  </script>
+  <script src="js/scripts.js"></script>
 
 </body>
 
