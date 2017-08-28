@@ -16,24 +16,24 @@
 </head>
 <!-- Navigation Bar -->
   <nav class="navbar navbar-inverse navbar-toggleable-sm fixed-top">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="41"></a>
-  <div class="collapse navbar-collapse" id="Navbar">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
-      <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
-    </ul>
-    <span class="navbar-text">
-      <a data-toggle="modal" data-target="#loginModal">
-        <span class="fa fa-sign-in"></span> Login</a>
-    </span>
-  </div>
-  </div>
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="41"></a>
+    <div class="collapse navbar-collapse" id="Navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a id="login">
+          <span class="fa fa-sign-in"></span> Login</a>
+      </span>
+    </div>
+    </div>
   </nav>
   <!-- Login Modal -->
   <div id="loginModal" class="modal fade" role="dialog">
@@ -42,7 +42,7 @@
   <div class="modal-content">
   <div class="modal-header">
     <h4 class="modal-title">Login </h4>
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <button type="button" class="close" id="closeloginmodal">&times;</button>
   </div>
   <div class="modal-body">
     <form class="form-inline">
@@ -62,7 +62,7 @@
       </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default btn-sm" id="cancelloginmodal">Cancel</button>
         <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
       </div>
   </div>
@@ -70,16 +70,16 @@
   </div>
 <!-- End of Login Modal -->
 <!-- Reserve Table Modal -->
-  <div id="reservetable" class="modal fade" role="dialog">
+  <div id="reserveModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg" role="content">
    <!-- Modal content-->
   <div class="modal-content">
   <div class="modal-header">
     <h4 class="modal-title">Reserve a Table </h4>
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <button type="button" class="close" id="closereservemodal">&times;</button>
   </div>
   <div class="modal-body">
-  <form class="container">
+  <form action="">
   <div class="form-group row">
     <label class="col-md-3 col-form-label align-self-top" for="totalguests"> Number of Guests </label>
   <div class="form-check form-check-inline align-self-center">
@@ -114,8 +114,7 @@
   </div>
   </div>
   <div class="form-group row">
-    <label class="col-3 col-form-label align-self-top" for="restaurantsection">Section </label>
-    <div class="col">
+    <label class="col-md-3 col-form-label align-self-top" for="restaurantsection">Section </label>
     <div class="btn-group" data-toggle="buttons">
       <label class="btn btn-success btn-sm active">
         <input type="radio" name="section" id="nonsmoking" value="nonsmoking" checked autocomplete="off"> Non-Smoking
@@ -125,25 +124,22 @@
       </label>
   </div>
   </div>
-  </div>
          <div class="form-group row">
            <label class="col-md-3 col-form-label align-self-top" for="dateandtime">Date and Time</label>
-         <div class="col">
-         <div class="input-group">
-         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-             <input type="date" id="date" placeholder="Date" required>
+         <div class="input-group col-md-9">
+           <div class="input-group">
+         <span class="input-group-addon" id="btngroupaddondate"><i class="fa fa-calendar fa-lg align-self-center"></i></span>
+             <input type="date" class="form-control" id="date" placeholder="Date" aria-describedby="btngroupaddondate" required>
            </div>
-         </div>
-         <div class="col">
          <div class="input-group">
-         <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-           <input type="time" id="time" name="time" placeholder="Time" required>
+         <span class="input-group-addon" id="btngroupaddontime"><i class="fa fa-clock-o fa-lg align-self-center"></i></span>
+           <input type="time" class="form-control" id="time" name="time" placeholder="Time" aria-describedby="btngroupaddontime" required>
          </div>
          </div>
           </div>
-          <div class="form-group row">
-            <div class="offset-md-3 col">
-         <button type="button" class="btn btn-default btn-md" data-dismiss="modal">Cancel</button>
+          <div class="form-group row" data-toggle="buttons">
+            <div class="btn-group offset-md-3 col-md-6" role="group">
+         <button type="button" class="btn btn-default btn-md" id="cancelreservemodal">Cancel</button>
          <button type="submit" class="btn btn-primary btn-md">Reserve</button>
        </div>
      </div>
@@ -166,7 +162,7 @@
       <img src="img/logo.png" class="img-fluid">
     </div>
     <div class="col col-sm align-self-center">
-      <a data-toggle="modal" role="button" class="btn btn-warning btn-block btn-sm" data-target="#reservetable">Reserve Table</a>
+      <button type="button" class="btn btn-warning btn-block btn-sm" id="reservetable">Reserve Table</button>
     </div>
     </div>
     </header>
@@ -325,7 +321,7 @@
   <script src="node_modules/tether/dist/js/tether.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
-    <!-- endbuild --> 
+    <!-- endbuild -->
 </body>
 
 </html>
