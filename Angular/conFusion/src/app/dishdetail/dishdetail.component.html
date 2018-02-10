@@ -43,7 +43,8 @@
         <p md-line>{{commentForm.value.rating + (commentForm.value.rating === 1 ? ' Star' : ' Stars')}}</p>
         <p md-line>-- {{commentForm.value.author}}</p>
       </md-list-item>
-    </md-list>
+    </md-list><br>
+    <h3>Submit Your Comment</h3>
     <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
       <p>
         <md-input-container class="full-width" dividerColor="{{ (formErrors.author) ? 'warn' : 'primary' }}">
@@ -70,8 +71,12 @@
     </form>
   </div>
 
-  <div [hidden]="dish" fxFlexFill>
-    <md-spinner></md-spinner> <h4>Loading... Please wait.</h4>
+  <div [hidden]="dish || errMess">
+    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
   </div>
 
 </div>
